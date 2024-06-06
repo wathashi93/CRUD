@@ -35,6 +35,17 @@ app.post("/create", (req,res)=>{
     })
 })
 
+app.delete("/delete/:id", (req,res)=>{
+    const sql = "DELETE FROM student where id = ?";
+    const id = req.params.id;
+   
+    db.query(sql,[id], (err,data) =>
+     {
+        if(err) return res.json(err);
+        return res.json("Success");
+    })
+})
+
 app.listen(8081,() =>{
 console.log("listening");
 })

@@ -12,6 +12,8 @@ function App() {
      <Routes>
        <Route path="/" element={<Student />}></Route>
        <Route path="/create" element={<Create />}></Route>
+       <Route path="/delete/:id" element={<delete />}></Route>
+       
      </Routes>
      </BrowserRouter>
     </div>

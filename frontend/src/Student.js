@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from "react";
 import axios from 'axios'
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Create from "./Create";
 
 function Student(){
@@ -11,8 +11,14 @@ function Student(){
         axios.get('http://localhost:8081/')
         .then(res=>setStudent(res.data))
         .catch(err=>console.log(err));
-
-    },[])
+    })
+const navigate = useNavigate();
+    const handleDelete =  (id) => {
+        
+        axios.delete('http://localhost:8081/delete/'+id)
+        .then(res => navigate('/'))
+        .catch(err=>console.log(err));
+    }
 
     return(
        <div className='d-flex vh-100 bg-primary justify-content-center align-items-center'>
@@ -34,7 +40,7 @@ function Student(){
                         <td>{data.Email}</td>
                         <td>
                             <button className="btn btn-success">Update</button>
-                            <button className="btn btn-danger ms-2">Delete</button>
+                            <button onClick={e => handleDelete(data.id)} className="btn btn-danger ms-2">Delete</button>
                         </td>
                     </tr>
                 ))

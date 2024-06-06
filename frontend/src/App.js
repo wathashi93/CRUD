@@ -13,6 +13,8 @@ function App() {
        <Route path="/" element={<Student />}></Route>
        <Route path="/create" element={<Create />}></Route>
        <Route path="/delete/:id" element={<delete />}></Route>
+       <Route path="/edit" element={<edit />}></Route>
+
        
      </Routes>
      </BrowserRouter>

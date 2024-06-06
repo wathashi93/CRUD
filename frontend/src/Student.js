@@ -39,7 +39,7 @@ const navigate = useNavigate();
                         <td>{data.Name}</td>
                         <td>{data.Email}</td>
                         <td>
-                            <button className="btn btn-success">Update</button>
+                            <link to="/edit" className="btn btn-success">Update</link>
                             <button onClick={e => handleDelete(data.id)} className="btn btn-danger ms-2">Delete</button>
                         </td>
                     </tr>
